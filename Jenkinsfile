@@ -1,7 +1,10 @@
 pipeline {
     agent any
-   
-        
+    parameters{
+    string(name: 'REPO_PATH', defaultValue: 'https://github.com/tavisca-vjola/web_api.git')
+        string(name: 'SOLUTION_PATH', defaultValue: 'webapi.sln')
+        string(name: 'TEST_PATH', defaultValue: 'apitests/apitests.csproj')
+    }
     stages {
         
         stage('Build') {
