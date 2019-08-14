@@ -23,4 +23,14 @@ pipeline {
             
         }
     }
+    post
+    {
+        always{
+         archiveArtifacts '**'
+            bat 'dotnet webapi/bin/Debug/netcoreapp2.2/webapi.dll'
+            
+        }
+        
+        
+    }
 }
