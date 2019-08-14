@@ -1,0 +1,17 @@
+C:\Users\vjola\source\repos\webapi\apitests\bin\Debug\netcoreapp2.2\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\vjola\source\repos\webapi\apitests\bin\Debug\netcoreapp2.2\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\vjola\source\repos\webapi\apitests\bin\Debug\netcoreapp2.2\xunit.runner.utility.netcoreapp10.dll
+C:\Users\vjola\source\repos\webapi\apitests\bin\Debug\netcoreapp2.2\apitests.deps.json
+C:\Users\vjola\source\repos\webapi\apitests\bin\Debug\netcoreapp2.2\apitests.runtimeconfig.json
+C:\Users\vjola\source\repos\webapi\apitests\bin\Debug\netcoreapp2.2\apitests.runtimeconfig.dev.json
+C:\Users\vjola\source\repos\webapi\apitests\bin\Debug\netcoreapp2.2\apitests.dll
+C:\Users\vjola\source\repos\webapi\apitests\bin\Debug\netcoreapp2.2\webapi.dll
+C:\Users\vjola\source\repos\webapi\apitests\bin\Debug\netcoreapp2.2\webapi.pdb
+C:\Users\vjola\source\repos\webapi\apitests\obj\Debug\netcoreapp2.2\apitests.csprojAssemblyReference.cache
+C:\Users\vjola\source\repos\webapi\apitests\obj\Debug\netcoreapp2.2\apitests.csproj.CoreCompileInputs.cache
+C:\Users\vjola\source\repos\webapi\apitests\obj\Debug\netcoreapp2.2\apitests.AssemblyInfoInputs.cache
+C:\Users\vjola\source\repos\webapi\apitests\obj\Debug\netcoreapp2.2\apitests.AssemblyInfo.cs
+C:\Users\vjola\source\repos\webapi\apitests\obj\Debug\netcoreapp2.2\apitests.csproj.CopyComplete
+C:\Users\vjola\source\repos\webapi\apitests\bin\Debug\netcoreapp2.2\apitests.pdb
+C:\Users\vjola\source\repos\webapi\apitests\obj\Debug\netcoreapp2.2\apitests.dll
+C:\Users\vjola\source\repos\webapi\apitests\obj\Debug\netcoreapp2.2\apitests.pdb
