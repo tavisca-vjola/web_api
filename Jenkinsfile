@@ -45,8 +45,8 @@ pipeline {
            stage('deploy') {
             steps {
                        
-                        bat 'docker build -t sia .'
-                       bat 'docker run --rm -p 5000:808 sia'
+                       powershell(script: 'docker build -t ${env:IMAGE_NAME} ./MyAPI')
+                 powershell(script:'docker run --rm -p 5000:808 ${env:IMAGE_NAME}')
 
             }
         }
