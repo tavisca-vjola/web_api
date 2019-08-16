@@ -42,12 +42,5 @@ string(name: 'TEST_PATH', defaultValue: 'webapi/webapi.csproj')
             }
         }
     }
-    post
-    {
-        success{
-         
-        }
-        
-        
-    }
+    
 }
