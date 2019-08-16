@@ -29,7 +29,7 @@ pipeline {
     }
     post
     {
-        always{
+        success{
          archiveArtifacts '**'
             bat 'dotnet webapi/bin/Debug/netcoreapp2.2/webapi.dll'
             
