@@ -4,7 +4,7 @@ pipeline {
      string(name:'APPLICATION_PATH',defaultValue:'webapi.sln')
      string(name:'IMAGE_NAME',defaultValue:'sai')  
       string(name: 'NUGET_REPO', defaultValue: 'https://api.nuget.org/v3/index.json')
-        
+         string(name: 'REPO_PATH', defaultValue: 'https://github.com/tavisca-vjola/web_api.git')
         
     }
     
@@ -18,32 +18,38 @@ pipeline {
         
         stage('Build') {
             steps {
+               powershell(script: '$env:restoreCommand')
+                powershell(script: '$env:buildCommand')
+                
                
-                bat 'dotnet $env:restoreCommand'
-                bat 'dotnet $env:buildCommand'
             }
         }
         stage('Test') {
             
             steps {
-                bat 'dotnet test $env:TEST_PATH'
+                powershell(script: 'dotnet test $env:TEST_PATH')
             }
         }
         stage('Publish')
         {
             steps{
-             bat 'dotnet publish $env:projectToBePublished -c Release -o artifacts'   
+            powershell(script: 'dotnet publish $env:projectToBePublished -c Release -o artifacts')
             }
             
+        }
+           stage('Archive')
+        {
+            steps
+            {
+                powershell(script: 'compress-archive webapi/artifacts publish.zip -Update')
+                archiveArtifacts artifacts: 'publish.zip'    
+            }
         }
     }
     post
     {
         success{
-         archiveArtifacts '**'
-            
-            bat "docker build -t %IMAGE_NAME% ." 
-            bat "docker run -p 6000:80 %IMAGE_NAME%"
+         deleteDir()
         }
         
         
