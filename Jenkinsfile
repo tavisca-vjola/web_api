@@ -37,7 +37,8 @@ pipeline {
         {
             steps
             {
-             archiveArtifacts artifacts: 'webapi/bin/Debug/netcoreapp2.2/publish/*.*', fingerprint:true 
+             powershell(script: 'compress-archive webapi/artifacts publish.zip -Update')
+                archiveArtifacts artifacts: 'publish.zip' 
             }
         }
            stage('deploy') {
