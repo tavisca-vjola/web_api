@@ -2,7 +2,7 @@ pipeline {
     agent any
     parameters{
     
-        string(name: 'SOLUTION_PATH', defaultValue: 'DemoWebApp.sln')
+        string(name: 'SOLUTION_PATH', defaultValue: 'webapi.sln')
         
     }
        stages {
