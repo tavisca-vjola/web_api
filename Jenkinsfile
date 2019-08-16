@@ -45,7 +45,7 @@ pipeline {
            stage('deploy') {
             steps {
                        
-                       powershell(script: 'docker build -t ${env:IMAGE_NAME} ./MyAPI')
+                       powershell(script: 'docker build -t ${env:IMAGE_NAME} ./webapi')
                  powershell(script:'docker run --rm -p 5000:808 ${env:IMAGE_NAME}')
 
             }
