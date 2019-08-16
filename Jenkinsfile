@@ -6,7 +6,7 @@ pipeline {
      string(name: 'NUGET_REPO', defaultValue: 'https://api.nuget.org/v3/index.json')
      string(name: 'GIT_REPO_PATH', defaultValue: 'https://github.com/tavisca-vjola/web_api.git')
      string(name: 'APPLICATION_TEST_PATH', defaultValue: 'webapi/webapi.csproj')
-        
+      string(name: 'IMAGE_NAME', defaultValue: 'sia')
     }
     
    
@@ -43,8 +43,8 @@ pipeline {
            stage('deploy') {
             steps {
                        
-                        powershell(script:'docker build -t myapi -f dockerfile .')
-                       powershell(script: 'docker run --rm -p 5000:789/tcp myapi')
+                        powershell(script:'docker build -t $IMAGE_NAME -f dockerfile .')
+                       powershell(script: 'docker run --rm -p 5000:789/tcp $IMAGE_NAME')
 
             }
         }
