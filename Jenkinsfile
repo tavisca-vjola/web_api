@@ -1,7 +1,6 @@
 pipeline {
-     agent {
-        docker { image 'node:7-alpine' }
-    }
+     agent any
+     
     parameters{
      string(name:'APPLICATION_PATH',defaultValue:'webapi.sln')
      string(name:'IMAGE_NAME',defaultValue:'sai')  
