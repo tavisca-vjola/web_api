@@ -1,16 +1,12 @@
 pipeline {
     agent any
-    parameters{
-    
-        string(name: 'SOLUTION_PATH', defaultValue: 'webapi.sln')
-        
-    }
+
        stages {
         
         stage('Build') {
             steps {
                
-                bat 'dotnet build %params.SOLUTION_PATH% -p:Configuration=release -v:n'
+                bat 'dotnet build webapi.sln -p:Configuration=release -v:n'
             }
         }
         stage('Test') {
