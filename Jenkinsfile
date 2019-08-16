@@ -2,7 +2,7 @@ pipeline {
     agent any
     parameters
     {
-        string(name:'SOLUTION_PATH',defaultValue:'webapi.sln')
+        string(name:'SOLUTION_PATH')
         
         
         
