@@ -44,8 +44,8 @@ pipeline {
            stage('deploy') {
             steps {
                        
-                        bat 'docker build -t $IMAGE_NAME .'
-                       powershell(script: 'docker run --rm -p 5000:789/tcp $IMAGE_NAME')
+                        bat 'docker build -t sia .'
+                       bat 'docker run --rm -p 5000:789/tcp sia'
 
             }
         }
