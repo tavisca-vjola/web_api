@@ -40,6 +40,14 @@ pipeline {
              archiveArtifacts artifacts: 'webapi/bin/Debug/netcoreapp2.2/publish/*.*', fingerprint:true 
             }
         }
+           stage('deploy') {
+            steps {
+                       
+                        powershell(script:'docker build -t myapi -f dockerfile .')
+                       powershell(script: 'docker run --rm -p 5000:789/tcp myapi')
+
+            }
+        }
            
     }
     
