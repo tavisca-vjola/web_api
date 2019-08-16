@@ -28,7 +28,8 @@ pipeline {
         success{
          archiveArtifacts '**'
             bat 'dotnet webapi/bin/Debug/netcoreapp2.2/webapi.dll'
-            
+            bat 'docker build -t webapiimage  .' 
+            bat 'docker run -p 6000:80 webapiimage'
         }
         
         
