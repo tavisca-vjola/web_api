@@ -37,10 +37,19 @@ pipeline {
         {
             steps
             {
-                powershell(script: 'compress-archive webapi/artifacts publish.zip -Update')
-                archiveArtifacts artifacts: 'publish.zip'    
+             archiveArtifacts artifacts: 'webapi/bin/Debug/netcoreapp2.2/pubish/*.*',fingerprint:true 
             }
         }
+           stage('Unzip')
+           {
+               
+           }
+           
+           stage('Publishtodocker')
+           {
+               
+               
+           }
     }
     
 }
