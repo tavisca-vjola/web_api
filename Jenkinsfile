@@ -40,16 +40,7 @@ pipeline {
              archiveArtifacts artifacts: 'webapi/bin/Debug/netcoreapp2.2/publish/*.*', fingerprint:true 
             }
         }
-           stage('Unzip')
-           {
-               
-           }
            
-           stage('Publishtodocker')
-           {
-               
-               
-           }
     }
     
 }
