@@ -5,6 +5,7 @@ pipeline {
      string(name:'IMAGE_NAME',defaultValue:'sai')  
      string(name: 'NUGET_REPO', defaultValue: 'https://api.nuget.org/v3/index.json')
      string(name: 'REPO_PATH', defaultValue: 'https://github.com/tavisca-vjola/web_api.git')
+string(name: 'TEST_PATH', defaultValue: 'webapi/webapi.csproj')
         
     }
     
@@ -22,7 +23,7 @@ pipeline {
         stage('Test') {
             
             steps {
-                powershell(script: 'dotnet test')
+                powershell(script: 'dotnet test $TEST_PATH')
             }
         }
         stage('Publish')
