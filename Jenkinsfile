@@ -1,12 +1,16 @@
 pipeline {
     agent any
-
+    parameters{
+     string(name:'APPLICATION_PATH',defaultValue:'webapi.sln')
+     string(name:'IMAGE_NAME',defaultValue:'sai')    
+        
+    }
        stages {
         
         stage('Build') {
             steps {
                
-                bat 'dotnet build webapi.sln -p:Configuration=release -v:n'
+                bat 'dotnet build %APPLICATION_PATH% -p:Configuration=release -v:n'
             }
         }
         stage('Test') {
