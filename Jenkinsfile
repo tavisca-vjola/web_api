@@ -37,7 +37,7 @@ pipeline {
         {
             steps
             {
-             archiveArtifacts artifacts: 'webapi/bin/Debug/netcoreapp2.2/publish/*.*',fingerprint:true 
+             archiveArtifacts artifacts: 'webapi/bin/Debug/netcoreapp2.2/publish/*.*', fingerprint:true 
             }
         }
            stage('Unzip')
