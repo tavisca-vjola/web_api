@@ -1,4 +1,5 @@
-FROM microsoft/dotnet:2.2-aspnetcore-runtime-nanoserver-1803 AS base
+FROM microsoft/dotnet:2.2-aspnetcore-runtime-nanoserver-1803 AS base    
+FROM mcr.microsoft.com/dotnet/core/aspnet:latest 
 
 COPY ./webapi/bin/Debug/netcoreapp2.2/publish .
 //ARG APPLICATION_NAME="Default"
