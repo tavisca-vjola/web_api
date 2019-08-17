@@ -8,6 +8,7 @@ pipeline {
      string(name: 'GIT_REPO_PATH', defaultValue: 'https://github.com/tavisca-vjola/web_api.git')
      string(name: 'APPLICATION_TEST_PATH', defaultValue: 'webapi/webapi.csproj')
       string(name: 'IMAGE_NAME', defaultValue: 'sia')
+      choice(name: 'JOB', choices:  ['Test' , 'Build', 'Create Image'])
     }
     
    
