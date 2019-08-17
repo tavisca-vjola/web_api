@@ -3,8 +3,8 @@ pipeline {
      
     parameters{
     
-      string(name: 'USER_NAME', defaultValue: 'vjmsai', description: 'Enter Login')
-       string(name: 'REPO_NAME', defaultValue: '', description: 'Enter Password')
+      string(name: 'USER_NAME', defaultValue: 'vjmsai', description: 'Enter User Name')
+       string(name: 'REPO_NAME', defaultValue: '', description: 'Enter Repo Name')
        string(name: 'TAG_NAME', defaultValue: 'version', description: 'enter tag name')
          string(name:"PORT",defaultValue:"4544")
          
