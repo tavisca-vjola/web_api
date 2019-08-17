@@ -8,7 +8,7 @@ pipeline {
      string(name: 'GIT_REPO_PATH', defaultValue: 'https://github.com/tavisca-vjola/web_api.git')
      string(name:'IMAGE_NAME',defaultValue:'sample-webapi',description: 'Enter the image name')
       string(name: 'DOCKER_LOGIN', defaultValue: 'vjmsai', description: 'Enter Login')
-       string(name: 'DOCKER_PASSWORD', defaultValue: 'vjmsai', description: 'Enter Password')
+       string(name: 'DOCKER_PASSWORD', defaultValue: 'Jola@1998', description: 'Enter Password')
        string(name: 'TAG_NAME', defaultValue: 'version', description: 'enter tag name')
          string(name:"DOCKER_REPO_NAME",defaultValue:"webapi")
               
