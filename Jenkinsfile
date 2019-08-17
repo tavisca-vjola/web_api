@@ -84,7 +84,7 @@ pipeline {
                  }
                  
             }
-              stage
+              stage('Running docker')
               {
                 steps
                      {
