@@ -11,6 +11,7 @@ pipeline {
        string(name: 'DOCKER_PASSWORD', defaultValue: 'Jola@1998', description: 'Enter Password')
        string(name: 'TAG_NAME', defaultValue: 'version', description: 'enter tag name')
          string(name:"DOCKER_REPO_NAME",defaultValue:"webapi")
+         string(name: 'DOCKER_CONTAINER_NAME',defaultValue: 'simpleapi')
               
 
    
@@ -75,6 +76,23 @@ pipeline {
                 powershell(script:'docker push ${env:DOCKER_LOGIN}/${env:DOCKER_REPO_NAME}:${env:TAG_NAME}')
             }
         }
+            stage('Docker Image Pulling')
+            {
+             steps
+                 {
+                  powershell(script:'docker pull  ${env:DOCKER_LOGIN}/${env:DOCKER_REPO_NAME}:${env:TAG_NAME}'    
+                 }
+                 
+            }
+                             stage
+                             {
+                              steps
+                                  {
+                                       
+                                       powershell(script:'docker run --name {env:DOCKER_CONTAINER_NAME} -p 5000:23455 ${env:IMAGE_NAME}'    
+                                  }
+                                  
+                             }
             
            
     }
