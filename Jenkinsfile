@@ -76,12 +76,12 @@ pipeline {
                 powershell(script:'docker push ${env:DOCKER_LOGIN}/${env:DOCKER_REPO_NAME}:${env:TAG_NAME}')
             }
         }
-            stage('Docker Image Pulling')
-            {
-             steps
-                 {
-                  powershell(script:'docker pull  ${env:DOCKER_LOGIN}/${env:DOCKER_REPO_NAME}:${env:TAG_NAME}') 
-                 }
+          //  stage('Docker Image Pulling')
+           // {
+           //  steps
+            //     {
+             //     powershell(script:'docker pull  ${env:DOCKER_LOGIN}/${env:DOCKER_REPO_NAME}:${env:TAG_NAME}') 
+              //   }
                  
             }
              // stage('Running docker')
