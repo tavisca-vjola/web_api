@@ -1,7 +1,6 @@
 FROM microsoft/dotnet:2.2-aspnetcore-runtime-nanoserver-1803 AS base    
 
 
-COPY ./webapi/bin/Debug/netcoreapp2.2/publish .
-ARG APPLICATION_NAME="Default"
-ENTRYPOINT ["dotnet", "${APPLICATION_NAME}.dll"]
+COPY ./webapi/bin/Debug/netcoreapp2.2/publish 
+ENTRYPOINT ["dotnet", "webapi.dll"]
 #ENTRYPOINT ["dotnet", "webapi.dll"]
