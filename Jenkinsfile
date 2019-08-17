@@ -6,18 +6,19 @@ pipeline {
  
      string(name: 'NUGET_REPO', defaultValue: 'https://api.nuget.org/v3/index.json')
      string(name: 'GIT_REPO_PATH', defaultValue: 'https://github.com/tavisca-vjola/web_api.git')
-     string(name:'DOCKER_HUB_USERNAME',defaultValue:'vjmsai')
-     string(name: 'DOCKER_HUB_CREDENTIALS_ID', defaultValue: 'docker-hub-credentials')
-     string(name: 'DOCKER_IMAGE_NAME', defaultValue: 'demo-api', description: 'Name of the image to be created')
-      string(name: 'DOCKER_IMAGE_TAG', defaultValue: 'version', description: 'Release information')
+     string(name:'IMAGE_NAME',defaultValue:'sample-webapi',description: 'Enter the image name')
+      string(name: 'DOCKER_LOGIN', defaultValue: 'vjmsai', description: 'Enter Login')
+       string(name: 'DOCKER_PASSWORD', defaultValue: 'vjmsai', description: 'Enter Password')
+       string(name: 'TAG_NAME', defaultValue: 'version', description: 'enter tag name')
+         string(name:"DOCKER_REPO_NAME",defaultValue:"webapi")
+              
+         
+         
    
      choice(name: 'JOB', choices:  ['Test' , 'Build', 'Publish'])
     }
     
-     environment
-     {
-          artifactsDirectory = "Artifacts"   
-     }
+    
    
        stages {
         
@@ -61,23 +62,17 @@ pipeline {
         //}
          stage('Docker Creation')
         {
-            steps
-            {
-                powershell "mv Dockerfile ${env.APPLICATION_PATH}/${env.artifactsDirectory}"
-            }
+           powershell(script:'docker build -t ${env:IMAGE_NAME} .')
+           powershell(script:'docker login -u ${env:DOCKER_LOGIN} -p ${env:DOCKER_PASSWORD}')
+           powershell(script:'docker tag ${env:IMAGE_NAME}:latest ${env:DOCKER_LOGIN}/${env:}:${env:TAG_NAME}')
+                
         }
-        stage(' Docker Image')
+        stage(' Docker Image Pushing')
         {
             steps 
             {
-                script 
-                {
-                    dir("${env.APPLICATION_PATH}/${env.artifactsDirectory}") 
-                    {
-                        
-                        powershell "docker build -t ${env.DOCKER_HUB_USERNAME}/${env.DOCKER_IMAGE_NAME}:${env.DOCKER_IMAGE_TAG} --build-arg LaunchFile='${env.APPLICATION_PATH}.dll' ."
-                    }
-                }
+              
+                powershell(script:'docker push ${env:DOCKER_LOGIN}/${env:DOCKER_REPO_NAME}:${env:TAG_NAME}')
             }
         }
             
