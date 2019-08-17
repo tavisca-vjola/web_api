@@ -84,15 +84,15 @@ pipeline {
                  }
                  
             }
-              stage('Running docker')
-              {
-                steps
-                     {
+             // stage('Running docker')
+             // {
+             //   steps
+             //        {
                                        
-                         powershell(script:'docker run --name ${env:DOCKER_CONTAINER_NAME} -p 5000:23455 ${env:IMAGE_NAME}'  )  
-                      }
+             //            powershell(script:'docker run --name ${env:DOCKER_CONTAINER_NAME} -p 5000:23455 ${env:IMAGE_NAME}'  )  
+               //       }
                                   
-              }
+             // }
             
            
     }
