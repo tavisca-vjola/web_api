@@ -31,7 +31,7 @@ pipeline {
         stage('Publish')
         {
             steps{
-            bat 'dotnet publish ' 
+            bat 'dotnet publish ${env:APPLICATION_PATH}' 
             
             }
             
