@@ -31,7 +31,7 @@ pipeline {
         stage('Publish')
         {
             steps{
-            powershell(script: 'dotnet publish $APPLICATION_PATH -c Release -o ${env.artifactsDirectory} --no-restore')
+            powershell(script: "dotnet publish $APPLICATION_PATH -c Release -o ${env.artifactsDirectory} --no-restore")
            }
             
         }
