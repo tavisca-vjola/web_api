@@ -31,8 +31,9 @@ pipeline {
         stage('Publish')
         {
             steps{
-             powershell(script: 'dotnet publish')
-           }
+            bat 'dotnet publish' 
+            
+            }
             
         }
         //   stage('Archive')
