@@ -14,7 +14,7 @@ pipeline {
      choice(name: 'JOB', choices:  ['Test' , 'Build', 'Publish'])
     }
     
-     enviroment
+     environment
      {
           artifactsDirectory = "MyArtifacts"   
      }
