@@ -8,7 +8,7 @@ pipeline {
      string(name: 'GIT_REPO_PATH', defaultValue: 'https://github.com/tavisca-vjola/web_api.git')
      string(name: 'APPLICATION_TEST_PATH', defaultValue: 'webapi/webapi.csproj')
       string(name: 'IMAGE_NAME', defaultValue: 'sia')
-      choice(name: 'JOB', choices:  ['Test' , 'Build', 'Create Image'])
+      //choice(name: 'JOB', choices:  ['Test' , 'Build', 'Create Image'])
     }
     
    
@@ -31,7 +31,7 @@ pipeline {
         stage('Publish')
         {
             steps{
-            powershell(script: "dotnet publish $APPLICATION_PATH -c Release -o ${env.artifactsDirectory} --no-restore")
+             powershell(script: 'dotnet publish')
            }
             
         }
