@@ -32,17 +32,17 @@ pipeline {
         {
             steps{
             powershell(script: 'dotnet publish $APPLICATION_PATH -c Release -o artifacts')
-            }
+           }
             
         }
-           stage('Archive')
-        {
-            steps
-            {
-             powershell(script: 'compress-archive webapi/artifacts publish.zip -Update')
-                archiveArtifacts artifacts: 'publish.zip' 
-            }
-        }
+        //   stage('Archive')
+        //{
+          //  steps
+           // {
+            // powershell(script: 'compress-archive webapi/artifacts publish.zip -Update')
+             //   archiveArtifacts artifacts: 'publish.zip' 
+            //}
+        //}
            stage('deploy') {
             steps {
                        
@@ -50,6 +50,7 @@ pipeline {
                  
             }
         }
+            
            
     }
     
