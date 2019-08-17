@@ -15,10 +15,7 @@ pipeline {
        stages {
         
         stage('Build') {
-             when
-            {
-                expression { params.JOB == 'Build'}
-            }
+            
             
             steps {
               
@@ -42,10 +39,7 @@ pipeline {
         stage('Publish')
         {
              
-           when
-            {
-                expression { params.JOB == 'Publish'}
-            }
+          
             
             steps{
             bat 'dotnet publish' 
