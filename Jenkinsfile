@@ -6,7 +6,7 @@ pipeline {
      string(name:'IMAGE_NAME',defaultValue:'sai')  
      string(name: 'NUGET_REPO', defaultValue: 'https://api.nuget.org/v3/index.json')
      string(name: 'GIT_REPO_PATH', defaultValue: 'https://github.com/tavisca-vjola/web_api.git')
-     string(name: 'APPLICATION_TEST_PATH', defaultValue: 'webapi/webapi.csproj')
+     
       string(name: 'IMAGE_NAME', defaultValue: 'sia')
       //choice(name: 'JOB', choices:  ['Test' , 'Build', 'Create Image'])
     }
@@ -17,7 +17,7 @@ pipeline {
         stage('Build') {
             steps {
               
-                powershell(script: 'dotnet build $APPLICATION_PATH -p:Configuration=release -v:n')
+                 powershell(script: 'dotnet build ${env:APPLICATION_PATH} -p:Configuration=release -v:n')
                 
                
             }
@@ -25,13 +25,13 @@ pipeline {
         stage('Test') {
             
             steps {
-                powershell(script: 'dotnet test $APPLICATION_TEST_PATH')
+                powershell(script: 'dotnet test')
             }
         }
         stage('Publish')
         {
             steps{
-            bat 'dotnet publish ${env:APPLICATION_PATH}' 
+            bat 'dotnet publish' 
             
             }
             
