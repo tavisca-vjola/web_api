@@ -26,9 +26,9 @@ pipeline {
                  }
                  
             }
-              stage
+              stage('Docker Running')
               {
-                steps('Docker Running')
+                steps
                      {
                                        
                           powershell(script:'docker run -p ${env:PORT_NAME}:80 ${env:REPO_NAME}:${env:TAG_NAME}')  
