@@ -8,7 +8,7 @@ pipeline {
      string(name: 'GIT_REPO_PATH', defaultValue: 'https://github.com/tavisca-vjola/web_api.git')
      
       string(name: 'IMAGE_NAME', defaultValue: 'sia')
-      //choice(name: 'JOB', choices:  ['Test' , 'Build', 'Publish'])
+     choice(name: 'JOB', choices:  ['Test' , 'Build', 'Publish'])
     }
     
    
@@ -35,6 +35,7 @@ pipeline {
             
             
             steps {
+                 
                 powershell(script: 'dotnet test')
             }
         }
