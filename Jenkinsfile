@@ -64,7 +64,7 @@ pipeline {
              steps{
            powershell(script:'docker build -t ${env:IMAGE_NAME} .')
            powershell(script:'docker login -u ${env:DOCKER_LOGIN} -p ${env:DOCKER_PASSWORD}')
-           powershell(script:'docker tag ${env:IMAGE_NAME}:latest ${env:DOCKER_LOGIN}/${env:}:${env:TAG_NAME}')
+           powershell(script:'docker tag ${env:IMAGE_NAME}:latest ${env:DOCKER_LOGIN}/${env:DOCKER_REPO_NAME}:${env:TAG_NAME}')
              }           
              }
         stage(' Docker Image Pushing')
