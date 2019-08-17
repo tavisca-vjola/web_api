@@ -8,13 +8,18 @@ pipeline {
      string(name: 'GIT_REPO_PATH', defaultValue: 'https://github.com/tavisca-vjola/web_api.git')
      
       string(name: 'IMAGE_NAME', defaultValue: 'sia')
-      //choice(name: 'JOB', choices:  ['Test' , 'Build', 'Create Image'])
+      //choice(name: 'JOB', choices:  ['Test' , 'Build', 'Publish'])
     }
     
    
        stages {
         
         stage('Build') {
+             when
+            {
+                expression { params.JOB == 'Build'}
+            }
+            
             steps {
               
                  powershell(script: 'dotnet build ${env:APPLICATION_PATH} -p:Configuration=release -v:n')
@@ -23,6 +28,11 @@ pipeline {
             }
         }
         stage('Test') {
+             when
+            {
+                expression { params.JOB == 'Test'}
+            }
+            
             
             steps {
                 powershell(script: 'dotnet test')
@@ -30,6 +40,12 @@ pipeline {
         }
         stage('Publish')
         {
+             
+           when
+            {
+                expression { params.JOB == 'Publish'}
+            }
+            
             steps{
             bat 'dotnet publish' 
             
