@@ -10,7 +10,7 @@ pipeline {
      string(name: 'DOCKER_HUB_CREDENTIALS_ID', defaultValue: 'docker-hub-credentials')
      string(name: 'DOCKER_IMAGE_NAME', defaultValue: 'demo-api', description: 'Name of the image to be created')
       string(name: 'DOCKER_IMAGE_TAG', defaultValue: 'version', description: 'Release information')
-      string(name: 'IMAGE_NAME', defaultValue: 'sia')
+   
      choice(name: 'JOB', choices:  ['Test' , 'Build', 'Publish'])
     }
     
