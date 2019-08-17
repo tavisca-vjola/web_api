@@ -80,7 +80,7 @@ pipeline {
             {
              steps
                  {
-                  powershell(script:'docker pull  ${env:DOCKER_LOGIN}/${env:DOCKER_REPO_NAME}:${env:TAG_NAME}'    
+                  powershell(script:'docker pull  ${env:DOCKER_LOGIN}/${env:DOCKER_REPO_NAME}:${env:TAG_NAME}'   ) 
                  }
                  
             }
@@ -89,7 +89,7 @@ pipeline {
                               steps
                                   {
                                        
-                                       powershell(script:'docker run --name ${env:DOCKER_CONTAINER_NAME} -p 5000:23455 ${env:IMAGE_NAME}'    
+                                       powershell(script:'docker run --name ${env:DOCKER_CONTAINER_NAME} -p 5000:23455 ${env:IMAGE_NAME}'  )  
                                   }
                                   
                              }
