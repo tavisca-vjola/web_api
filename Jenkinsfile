@@ -31,7 +31,7 @@ pipeline {
                 steps
                      {
                                        
-                          powershell(script:'docker run -p ${env:PORT}:80 ${env:REPO_NAME}:${env:TAG_NAME}')  
+                          powershell(script:'docker run -p ${env:PORT}:80 ${env:USER_NAME}/${env:REPO_NAME}:${env:TAG_NAME}')  
                       }
                                   
               }
