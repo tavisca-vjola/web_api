@@ -12,8 +12,7 @@ pipeline {
        string(name: 'TAG_NAME', defaultValue: 'version', description: 'enter tag name')
          string(name:"DOCKER_REPO_NAME",defaultValue:"webapi")
               
-         
-         
+
    
      choice(name: 'JOB', choices:  ['Test' , 'Build', 'Publish'])
     }
@@ -62,11 +61,12 @@ pipeline {
         //}
          stage('Docker Creation')
         {
+             steps{
            powershell(script:'docker build -t ${env:IMAGE_NAME} .')
            powershell(script:'docker login -u ${env:DOCKER_LOGIN} -p ${env:DOCKER_PASSWORD}')
            powershell(script:'docker tag ${env:IMAGE_NAME}:latest ${env:DOCKER_LOGIN}/${env:}:${env:TAG_NAME}')
-                
-        }
+             }           
+             }
         stage(' Docker Image Pushing')
         {
             steps 
