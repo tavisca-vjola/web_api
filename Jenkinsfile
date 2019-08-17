@@ -16,7 +16,7 @@ pipeline {
     
      environment
      {
-          artifactsDirectory = "MyArtifacts"   
+          artifactsDirectory = "Artifacts"   
      }
    
        stages {
