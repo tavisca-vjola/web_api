@@ -22,10 +22,10 @@ pipeline {
             {
                  steps
                  {
-                      powershell(script:'dotnet C:\sonarqube-7.9.1\sonar-scanner-msbuild-4.6.2.2108-netcoreapp2.0\SonarScanner.MSBuild.dll begin /k:"vjmsaii" /d:sonar.host.url="http://localhost:9000" /d:sonar.login="3b4f409dc25ff85f3141161909eba853011ee50c"')
+                      powershell(script:'dotnet C:/sonarqube-7.9.1/sonar-scanner-msbuild-4.6.2.2108-netcoreapp2.0/SonarScanner.MSBuild.dll begin /k:"vjmsaii" /d:sonar.host.url="http://localhost:9000" /d:sonar.login="3b4f409dc25ff85f3141161909eba853011ee50c"')
                       powershell(script:'dotnet build')
                       powershell(script:'dotnet test')
-                      powershell(script:'dotnet C:\sonarqube-7.9.1\sonar-scanner-msbuild-4.6.2.2108-netcoreapp2.0\SonarScanner.MSBuild.dll end /d:sonar.login="3b4f409dc25ff85f3141161909eba853011ee50c"')
+                      powershell(script:'dotnet C:/sonarqube-7.9.1/sonar-scanner-msbuild-4.6.2.2108-netcoreapp2.0/SonarScanner.MSBuild.dll end /d:sonar.login="3b4f409dc25ff85f3141161909eba853011ee50c"')
                       
                  }
             }
