@@ -28,30 +28,12 @@ pipeline {
             steps {
               
                  powershell(script: 'dotnet build ${env:APPLICATION_PATH} -p:Configuration=release -v:n')
-                
-               
+                 powershell(script: 'dotnet test')   
+                powershell(script: 'dotnet publish') 
             }
         }
-        stage('Test') {
-             when
-            {
-                expression { params.JOB == 'Test'}
-            }
-            
-            
-            steps {
-                 
-                powershell(script: 'dotnet test')
-            }
-        }
-        stage('Publish')
-        {
-          steps{
-                 powershell(script: 'dotnet publish') 
-             
-            }
-            
-        }
+       
+       
         //   stage('Archive')
         //{
           //  steps
@@ -60,22 +42,16 @@ pipeline {
              //   archiveArtifacts artifacts: 'publish.zip' 
             //}
         //}
-         stage('Docker Creation')
+         stage('Deploy')
         {
              steps{
            powershell(script:'docker build -t ${env:IMAGE_NAME} .')
            powershell(script:'docker login -u ${env:DOCKER_LOGIN} -p ${env:DOCKER_PASSWORD}')
            powershell(script:'docker tag ${env:IMAGE_NAME}:latest ${env:DOCKER_LOGIN}/${env:DOCKER_REPO_NAME}:${env:TAG_NAME}')
+                   powershell(script:'docker push ${env:DOCKER_LOGIN}/${env:DOCKER_REPO_NAME}:${env:TAG_NAME}')
              }           
-             }
-        stage(' Docker Image Pushing')
-        {
-            steps 
-            {
-              
-                powershell(script:'docker push ${env:DOCKER_LOGIN}/${env:DOCKER_REPO_NAME}:${env:TAG_NAME}')
-            }
         }
+        
        //     stage('Docker Image Pulling')
          //   {
            //  steps
