@@ -35,8 +35,8 @@ pipeline {
             
             steps {
               
-                 powershell(script: 'dotnet build ${env:APPLICATION_PATH} -p:Configuration=release -v:n')
-                 powershell(script: 'dotnet test')   
+                // powershell(script: 'dotnet build ${env:APPLICATION_PATH} -p:Configuration=release -v:n')
+              //   powershell(script: 'dotnet test')   
                 powershell(script: 'dotnet publish') 
             }
         }
